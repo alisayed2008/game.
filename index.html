@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sentence Shuffle - Word Puzzle</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1>Sentence Shuffle</h1>
+      <p>Arrange the words before time runs out.</p>
+    </header>
+
+    <main class="app__screen">
+      <section id="screen-menu" class="screen screen--active" aria-label="Main menu">
+        <div class="phone-frame">
+          <div class="menu">
+            <div class="menu__top">
+              <div class="logo">SS</div>
+              <div class="menu__stats">
+                <span>Highest Level</span>
+                <strong id="highest-level">1</strong>
+              </div>
+            </div>
+            <button id="play-button" class="btn btn--primary">Play</button>
+            <button id="levels-button" class="btn">Levels</button>
+            <div class="menu__toggles">
+              <button id="sound-button" class="btn btn--ghost" aria-pressed="true">Sound: On</button>
+              <button id="music-button" class="btn btn--ghost" aria-pressed="true">Music: On</button>
+            </div>
+            <button id="exit-button" class="btn btn--outline">Exit</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-levels" class="screen" aria-label="Levels">
+        <div class="phone-frame">
+          <div class="levels">
+            <div class="levels__header">
+              <h2>Levels</h2>
+              <button id="levels-back" class="btn btn--ghost">Back</button>
+            </div>
+            <div id="levels-grid" class="levels__grid" role="list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-game" class="screen" aria-label="Gameplay">
+        <div class="phone-frame">
+          <div class="game">
+            <div class="game__hud">
+              <div class="timer">⏱ <span id="timer">00:00</span></div>
+              <div class="score">Score: <span id="score">0</span></div>
+            </div>
+            <div id="ad-placeholder" class="ad" aria-live="polite">Ad Space</div>
+            <div id="tile-bank" class="tile-bank" aria-label="Word tiles"></div>
+            <div id="answer-row" class="answer-row" aria-label="Drop zone"></div>
+            <div class="game__actions">
+              <button id="rewarded-ad" class="btn btn--ghost">Watch Ad +5s</button>
+              <button id="restart-button" class="btn">Restart</button>
+              <button id="back-menu" class="btn btn--outline">Menu</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-win" class="screen" aria-label="Win">
+        <div class="phone-frame">
+          <div class="result result--win">
+            <h2>Great Job!</h2>
+            <p>Sentence solved.</p>
+            <div class="result__stars" id="win-stars">★★★</div>
+            <div class="result__score">Score: <span id="win-score">0</span></div>
+            <div class="result__actions">
+              <button id="next-level" class="btn btn--primary">Next Level</button>
+              <button id="replay-level" class="btn">Replay</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-lose" class="screen" aria-label="Lose">
+        <div class="phone-frame">
+          <div class="result result--lose">
+            <h2>Time's Up</h2>
+            <p>Try again to beat the clock.</p>
+            <div class="result__actions">
+              <button id="retry-level" class="btn btn--primary">Retry</button>
+              <button id="lose-menu" class="btn btn--outline">Menu</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <audio id="audio-click" src="assets/audio/click.mp3" preload="auto"></audio>
+  <audio id="audio-success" src="assets/audio/success.mp3" preload="auto"></audio>
+  <audio id="audio-fail" src="assets/audio/fail.mp3" preload="auto"></audio>
+  <audio id="audio-music" src="assets/audio/music.mp3" preload="auto" loop></audio>
+
+  <script src="app.js"></script>
+</body>
+</html>
